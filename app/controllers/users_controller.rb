@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	include SessionsHelper
-	
+
   def index
   	@users = User.all
   end
