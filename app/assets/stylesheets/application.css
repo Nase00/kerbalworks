@@ -50,6 +50,25 @@ section#session, a.session-link {
 	background-color: #262626;
 }
 
+/* Text */
+h1, h2, h3, h4, h5, h1 > a, h2 > a, h3 > a, h4 > a, h5 > a {
+	margin: 0;
+	padding: 4px;
+	text-transform: uppercase;
+	color: #4A8DFB;
+	border: 0;
+}
+h1 > a:hover, h2 > a:hover, h3 > a:hover, h4 > a:hover, h5 > a:hover {
+	color: #77BED2;
+}
+h1, h1 > a {
+	padding: 10px;
+	color: #f90304;
+}
+h1 > a:hover {
+	color: #f73636;
+}
+
 /* Forms */
 section.form {
 	float: right;
@@ -124,23 +143,23 @@ div.buttons {
   background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
 }
-
-/* Text */
-h1, h2, h3, h4, h5, h1 > a, h2 > a, h3 > a, h4 > a, h5 > a {
-	margin: 0;
-	padding: 4px;
+a.footer-link {
+	display: inline-block;
+	margin: 4px;
+	padding: 2px;
+	width: 340px;
+	text-align: center;
+	text-decoration: none;
 	text-transform: uppercase;
-	color: #4A8DFB;
-	border: 0;
+	color: #8fbd5e;
+	border: 4px solid #8fbd5e;
 }
-h1 > a:hover, h2 > a:hover, h3 > a:hover, h4 > a:hover, h5 > a:hover {
-	color: #77BED2;
+a.footer-link:hover:before {
+   content: "[ ";
 }
-h1 {
-	padding: 10px;
-	color: #f90304;
+a.footer-link:hover:after {
+   content: " ]";
 }
-
 footer {
     position: absolute;
     left: 0;
@@ -149,6 +168,6 @@ footer {
     height: 40px;
     width: 100%;
     text-align: center;
-    color: #D9411E;
+    color: #8fbd5e;
     background-color: #333333;
 }

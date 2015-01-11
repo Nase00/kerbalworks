@@ -1,7 +1,7 @@
 <% content_for :title, "Register" %>
 
 <section class="form">
-	<h2>Register</h2>
+	<h2><%= yield(:title) %></h2>
 	<%= form_for(@user) do |f| %>
 		<div class="fields">
 			<%= f.label :name %>
