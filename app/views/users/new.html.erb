@@ -1,0 +1,33 @@
+<% content_for :title, "Register" %>
+
+<section class="form">
+	<h2>Register</h2>
+	<%= form_for(@user) do |f| %>
+		<div class="fields">
+			<%= f.label :name %>
+			<%= f.text_field :name, placeholder: "Name" %>
+			<%= f.label :email %>
+			<%= f.text_field :email, placeholder: "Email adddress" %>
+			<%= f.label :youtube %>
+			<%= f.text_field :youtube, placeholder: "Youtube channel (optional)" %>
+			<%= f.label :twitter %>
+			<%= f.text_field :twitter, placeholder: "Twitter handle (optional)" %>
+			<%= f.label :password %>
+			<%= f.password_field :password %>
+			<%= f.label :password_confirmation, "Confirm" %>
+			<%= f.password_field :password_confirmation %>
+		</div>
+
+		<div class="buttons">
+			<%= f.submit "Submit", class: "affirm" %>
+			<%= f.submit "Cancel", class: "disaffirm" %>
+		</div>
+	<% end %>
+	<% if @user.errors.full_messages.any? %>
+		<ul>
+			<% @user.errors.full_messages.each do |error_message| %>
+				<li><%= error_message %></li>
+			<% end %>
+		</ul>
+	<% end %>
+</section>

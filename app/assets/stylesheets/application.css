@@ -1,15 +1,91 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+* {
+	font-family: Helvetica;
+  box-sizing: border-box;
+}
+html {
+  overflow-y: scroll;
+  min-height: 100%;
+  color: #ffffff;
+  background-color: #262626;
+}
+
+/* Forms */
+div.buttons > input, div.buttons, section.form, section.content, input {
+	margin: 0 auto auto;
+	border: 0;
+}
+div.fields > input {
+	float: right;
+  margin: 2px;
+  padding: 4px;
+  width: 200px;
+  border-radius: 2px;
+}
+div.fields > label, div.buttons > label {
+	display: inline-block;
+	margin: 6px;
+}
+div.buttons {
+	padding: 2px;
+	width: 305px;
+}
+section.form {
+	padding: 10px;
+	width: 320px;
+	background-color: #3f3f3f;
+}
+section.form > h2 {
+	margin: 5px 5px 10px 5px;
+	text-align: center;
+}
+.buttons > .affirm, .disaffirm {
+	height: 30px;
+	color: #ffffff;
+	font-size: 18px;
+	text-transform: uppercase;
+	border-radius: 4px;
+}
+.buttons > .affirm {
+	width: 192px;
+	background: #8fbd5e;
+  background-image: -webkit-linear-gradient(top, #8fbd5e, #5fbd00);
+  background-image: -moz-linear-gradient(top, #8fbd5e, #5fbd00);
+  background-image: -ms-linear-gradient(top, #8fbd5e, #5fbd00);
+  background-image: -o-linear-gradient(top, #8fbd5e, #5fbd00);
+  background-image: linear-gradient(to bottom, #8fbd5e, #5fbd00);
+}
+.buttons > .disaffirm {
+	width: 100px;
+	background: #00aaff;
+  background-image: -webkit-linear-gradient(top, #00aaff, #0073e6);
+  background-image: -moz-linear-gradient(top, #00aaff, #0073e6);
+  background-image: -ms-linear-gradient(top, #00aaff, #0073e6);
+  background-image: -o-linear-gradient(top, #00aaff, #0073e6);
+  background-image: linear-gradient(to bottom, #00aaff, #0073e6);
+}
+.buttons > .affirm:hover {
+	background: #7ebd5e;
+  background-image: -webkit-linear-gradient(top, #7ebd5e, #7ebd5e);
+  background-image: -moz-linear-gradient(top, #7ebd5e, #7ebd5e);
+  background-image: -ms-linear-gradient(top, #7ebd5e, #7ebd5e);
+  background-image: -o-linear-gradient(top, #7ebd5e, #7ebd5e);
+  background-image: linear-gradient(to bottom, #7ebd5e, #7ebd5e);
+}
+.buttons > .disaffirm:hover {
+	background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+}
+
+/* Text */
+h1, h2, h3, h4, h5, h1 > a, h2 > a, h3 > a, h4 > a, h5 > a {
+	margin: 2px;
+	text-transform: uppercase;
+	color: #4A8DFB;
+}
+h1 > a:hover, h2 > a:hover, h3 > a:hover, h4 > a:hover, h5 > a:hover {
+	color: #77BED2;
+}
