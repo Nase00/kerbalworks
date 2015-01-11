@@ -15,8 +15,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-$(document).ready(function (){
-	$('#login-link').click(function (e) {
-		// e.preventDefault();
-	})
-})

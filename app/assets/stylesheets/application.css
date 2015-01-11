@@ -24,6 +24,9 @@ a {
 a:hover {
 	text-decoration: underline;
 }
+.hidden {
+	display: none;
+}
 
 /* Session */
 section#session {
@@ -35,6 +38,16 @@ section#session {
 section#session, a.session-link {
 	text-transform: uppercase;
 	color: #ffffff;
+}
+
+/* Content */
+.content {
+	margin: 10px auto auto;
+	padding: 10px;
+	width: 60%;
+	min-width: 600px;
+	color: #ffffff;
+	background-color: #262626;
 }
 
 /* Forms */
