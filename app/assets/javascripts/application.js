@@ -10,7 +10,13 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require underscore
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(document).ready(function (){
+	$('#login-link').click(function (e) {
+		// e.preventDefault();
+	})
+})

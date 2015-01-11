@@ -1,0 +1,20 @@
+<% content_for :title, "Login" %>
+
+<section class="form hidden">
+	<h2>Login</h2>
+	<%= form_for(:session, url: login_path) do |f| %>
+		<div class="fields">
+			<%= f.label :email %>
+			<%= f.text_field :email, placeholder: "Email adddress" %>
+			<%= f.label :password %>
+			<%= f.password_field :password, placeholder: "Password" %>
+		</div>
+
+		<div class="buttons">
+			<%= f.submit "Login", class: "affirm" %>
+		</div>
+	<% end %>
+	<div class="buttons">
+		<%= button_to 'Cancel', root_path, method: :get, class: "disaffirm" %>
+	</div>
+</section>

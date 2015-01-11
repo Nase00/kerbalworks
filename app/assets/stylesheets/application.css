@@ -5,13 +5,51 @@
 html {
   overflow-y: scroll;
   min-height: 100%;
-  color: #ffffff;
-  background-color: #262626;
+  /*color: #ffffff;*/
+}
+body {
+	margin: 0;
+	background-color: #F0F0F0;
+}
+header {
+	background-color: #262626;
+}
+section {
+	margin: 10px;
+	/*box-shadow: 1px 1px 2px #bfbfbf;*/
+}
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+/* Session */
+section#session {
+	position: absolute;
+	padding: 10px;
+	top: 0;
+	right: 0;
+}
+section#session, a.session-link {
+	text-transform: uppercase;
+	color: #ffffff;
 }
 
 /* Forms */
+section.form {
+	float: right;
+	padding: 10px;
+	width: 320px;
+	background-color: #3f3f3f;
+}
+section.form > h2 {
+	text-align: center;
+}
 form {
 	display: inline;
+	color: #ffffff;
 }
 div.buttons > input, div.buttons, section.form, section.content, input {
 	margin: 0 auto auto;
@@ -29,20 +67,10 @@ div.fields > label, div.buttons > label {
 	margin: 6px;
 }
 div.buttons {
+	display: inline-block;
 	padding: 2px;
-	width: 305px;
-}
-section.form {
-	padding: 10px;
-	width: 320px;
-	background-color: #3f3f3f;
-}
-section.form > h2 {
-	margin: 5px 5px 10px 5px;
-	text-align: center;
 }
 .buttons > .affirm, .disaffirm {
-	display: inline-block;
 	height: 30px;
 	color: #ffffff;
 	font-size: 18px;
@@ -50,7 +78,7 @@ section.form > h2 {
 	border-radius: 4px;
 }
 .buttons > .affirm {
-	width: 192px;
+	width: 186px;
 	background: #8fbd5e;
   background-image: -webkit-linear-gradient(top, #8fbd5e, #5fbd00);
   background-image: -moz-linear-gradient(top, #8fbd5e, #5fbd00);
@@ -86,13 +114,28 @@ section.form > h2 {
 
 /* Text */
 h1, h2, h3, h4, h5, h1 > a, h2 > a, h3 > a, h4 > a, h5 > a {
-	margin: 2px;
+	margin: 0;
+	padding: 4px;
 	text-transform: uppercase;
 	color: #4A8DFB;
+	border: 0;
 }
 h1 > a:hover, h2 > a:hover, h3 > a:hover, h4 > a:hover, h5 > a:hover {
 	color: #77BED2;
 }
 h1 {
+	padding: 10px;
 	color: #f90304;
+}
+
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 2px;
+    height: 40px;
+    width: 100%;
+    text-align: center;
+    color: #D9411E;
+    background-color: #333333;
 }

@@ -20,9 +20,11 @@
 
 		<div class="buttons">
 			<%= f.submit "Submit", class: "affirm" %>
-	<% end %>
-		<%= button_to 'Cancel', root_path, method: :get, class: "disaffirm" %>
 		</div>
+	<% end %>
+	<div class="buttons">
+		<%= button_to 'Cancel', root_path, method: :get, class: "disaffirm" %>
+	</div>
 	<% if @user.errors.full_messages.any? %>
 		<ul>
 			<% @user.errors.full_messages.each do |error_message| %>
