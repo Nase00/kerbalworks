@@ -2,6 +2,7 @@ $(document).ready(function (){
 	function slideForm(button, form) {
 		button.click(function(e) {
 			e.preventDefault();
+			e.stopPropagation();
 	    var opened = $(this).data('opened');
 
 	    if (opened) {
@@ -18,9 +19,21 @@ $(document).ready(function (){
 		$('#login-form').hide();
 		$('#register-form').hide()
 	}
+	function stopPropagation(form) {
+		form.click(function(e) {
+			e.stopPropagation();
+		})
+	}
 
 	slideForm($('#login-link'), $('#login-form'))
 	slideForm($('#register-link'), $('#register-form'))
+	// slideForm()
+	stopPropagation($('#login-form'))
+	stopPropagation($('#register-form'))
+
+	$('html').click(function(e) {
+		clearForms();
+	})
 
 	$('.disaffirm').click(function (e) {
 		e.preventDefault();
