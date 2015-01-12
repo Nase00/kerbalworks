@@ -17,8 +17,8 @@ $(document).ready(function (){
 		})
 	}
 	function clearForms() {
-		$('#login-form').slideUp();
-		$('#register-form').slideUp()
+		$('#login-form').hide();
+		$('#register-form').hide()
 	}
 	function stopPropagation(form) {
 		form.click(function(e) {
@@ -40,7 +40,7 @@ $(document).ready(function (){
 	})
 
 	// Ajax session control
- //  $('#submit-login').click(function(e) {
+	// $('#submit-login').click(function(e) {
 	//   var request = $.ajax({
 	//     url: origin + "/" + input,
 	//     method: "get",
