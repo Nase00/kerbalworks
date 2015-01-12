@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 		@user = current_user
 	end
 
-	def user_params # wtf does this even do?
+	def user_params
     params.require(:user).permit(:name, :email, :password, :salt, :encrypted_password)
   end
 end
