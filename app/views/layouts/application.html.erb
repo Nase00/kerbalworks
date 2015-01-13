@@ -12,32 +12,13 @@
 		<section id="session">
 			<% if logged_in? %>
 				<span id="welcome">Logged in as: <%= link_to current_user.name, current_user, class: "session-link" %> | </span>
-				<%= link_to 'LOGOUT', logout_path, method: :delete, class: "session-link", id: "logout-link" %>
+				<%= link_to 'LOGOUT', session_path(current_user), method: :delete, class: "session-link", id: "logout-link" %>
 			<% else %>
-				<%= link_to "Login", login_path, class: "session-link", id: "login-link" %> |
+				<%= link_to "Login", new_session_path, class: "session-link", id: "login-link" %> |
 				<%= link_to 'Register', new_user_path, class: "session-link", id: "register-link" %>
 			<% end %>
 		</section>
 	</header>
-
-	<section class="form hidden" id='login-form'>
-		<h2>Login</h2>
-		<%= form_for(:session, url: login_path) do |f| %>
-			<div class="fields">
-				<%= f.label :email %>
-				<%= f.text_field :email, placeholder: "Email adddress" %>
-				<%= f.label :password %>
-				<%= f.password_field :password, placeholder: "Password" %>
-			</div>
-
-			<div class="buttons">
-				<%= f.submit "Login", class: "affirm", id: "do-login" %>
-			</div>
-		<% end %>
-		<div class="buttons">
-			<%= button_to 'Cancel', root_path, method: :get, class: "disaffirm" %>
-		</div>
-	</section>
 
 	<%= render 'layouts/login_form' %>
 

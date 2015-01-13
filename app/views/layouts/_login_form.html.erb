@@ -1,6 +1,6 @@
 <section class="form hidden" id='login-form'>
     <h2>Login</h2>
-    <%= form_for(:session, url: login_path) do |f| %>
+    <%= form_for :session, url: { controller: "sessions", action: "create"} do |f| %>
       <div class="fields">
         <%= f.label :email %>
         <%= f.text_field :email, placeholder: "Email adddress" %>
