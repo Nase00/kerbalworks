@@ -1,0 +1,26 @@
+<section class="form hidden" id='register-form'>
+    <h2>Register</h2>
+    <%= form_for(:user, url: new_user_path, method: :create) do |f| %>
+      <div class="fields">
+        <%= f.label :name %>
+        <%= f.text_field :name, placeholder: "Name" %>
+        <%= f.label :email %>
+        <%= f.text_field :email, placeholder: "Email adddress" %>
+        <%= f.label :youtube %>
+        <%= f.text_field :youtube, placeholder: "Youtube channel (optional)" %>
+        <%= f.label :twitter %>
+        <%= f.text_field :twitter, placeholder: "Twitter handle (optional)" %>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+        <%= f.label :password_confirmation, "Confirm" %>
+        <%= f.password_field :password_confirmation %>
+      </div>
+
+      <div class="buttons">
+        <%= f.submit "Submit", class: "affirm" %>
+      </div>
+    <% end %>
+    <div class="buttons">
+      <%= button_to 'Cancel', root_path, method: :get, class: "disaffirm" %>
+    </div>
+  </section>
