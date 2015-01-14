@@ -2,13 +2,34 @@ class SessionsController < ApplicationController
   def new
   end
 
+  # def create
+  #   user = User.find_by(email: params[:session][:email].downcase)
+  #   if user && user.authenticate(params[:session][:password])
+  #     session[:user_id] = user.id
+  #     redirect_to root_path
+  #   else
+  #     render 'new'
+  #   end
+  # end
+
+  # def create
+  #   @user = User.find_by(email: params[:session][:email].downcase)
+
+  #   respond_to do |format|
+  #     if @user.save
+  #       format.html { redirect_to @user, notice: 'User was successfully created.' }
+  #       format.json { render :show, status: :created, location: @user }
+  #     else
+  #       format.html { render :new }
+  #       format.json { render json: @user.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
+#
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
-      session[:user_id] = user.id
-      redirect_to root_path
-    else
-      render 'new'
+    @user = User.find_by(email: params[:email])
+    respond_to do |format|
+      format.js { render :json => @user }
     end
   end
 

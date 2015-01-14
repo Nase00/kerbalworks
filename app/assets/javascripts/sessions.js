@@ -40,12 +40,18 @@ $(document).ready(function (){
 	})
 
 	// Ajax session control
-	// $('#submit-login').click(function(e) {
-	//   var request = $.ajax({
-	//     url: origin + "/" + input,
-	//     method: "get",
-	//     dataType: "json",
-	//     data: 'test'
-	//   })
-	// })
+	$('#login-form').submit(function(e) {
+		e.preventDefault();
+	  var request = $.ajax({
+	    url: "/login",
+	    method: "post",
+	    dataType: "json",
+	    data: $('#login-form').serialize()
+	  })
+
+	  request.done(function(response) {
+	  	console.log(response)
+	  	console.log("test")
+	  })
+	})
 })
