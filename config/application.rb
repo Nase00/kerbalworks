@@ -26,5 +26,6 @@ module Kspace
       html_tag
     }
     config.active_record.raise_in_transactional_callbacks = true
+    config.assets.paths << "#{Rails.root}/lib/javascripts"
   end
 end

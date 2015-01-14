@@ -1,0 +1,173 @@
+* {
+	font-family: Helvetica;
+  box-sizing: border-box;
+}
+html {
+  overflow-y: scroll;
+  min-height: 100%;
+  /*color: #ffffff;*/
+}
+body {
+	margin: 0;
+	background-color: #F0F0F0;
+}
+header {
+	background-color: #262626;
+}
+section {
+	margin: 10px;
+	/*box-shadow: 1px 1px 2px #bfbfbf;*/
+}
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+.hidden {
+	display: none;
+}
+
+/* Session */
+section#session {
+	position: absolute;
+	padding: 10px;
+	top: 0;
+	right: 0;
+}
+section#session, a.session-link {
+	text-transform: uppercase;
+	color: #ffffff;
+}
+
+/* Content */
+.content {
+	margin: 10px auto auto;
+	padding: 10px;
+	width: 60%;
+	min-width: 600px;
+	color: #ffffff;
+	background-color: #262626;
+}
+
+/* Text */
+h1, h2, h3, h4, h5, h1 > a, h2 > a, h3 > a, h4 > a, h5 > a {
+	margin: 0;
+	padding: 4px;
+	text-transform: uppercase;
+	color: #4A8DFB;
+	border: 0;
+}
+h1 > a:hover, h2 > a:hover, h3 > a:hover, h4 > a:hover, h5 > a:hover {
+	color: #77BED2;
+}
+h1, h1 > a {
+	padding: 10px;
+	color: #f90304;
+}
+h1 > a:hover {
+	color: #f73636;
+}
+
+/* Forms */
+section.form {
+	float: right;
+	padding: 10px;
+	width: 320px;
+	background-color: #3f3f3f;
+}
+section.form > h2 {
+	text-align: center;
+}
+form {
+	display: inline;
+	color: #ffffff;
+}
+div.buttons > input, div.buttons, section.form, section.content, input {
+	margin: 0 auto auto;
+	border: 0;
+}
+div.fields > input {
+	float: right;
+  margin: 2px;
+  padding: 4px;
+  width: 200px;
+  border-radius: 2px;
+}
+div.fields > label, div.buttons > label {
+	display: inline-block;
+	margin: 6px;
+}
+div.buttons {
+	display: inline-block;
+	padding: 2px;
+}
+.buttons > .affirm, .disaffirm {
+	height: 30px;
+	color: #ffffff;
+	font-size: 18px;
+	text-transform: uppercase;
+	border-radius: 4px;
+}
+.buttons > .affirm {
+	width: 186px;
+	background: #8fbd5e;
+  background-image: -webkit-linear-gradient(top, #8fbd5e, #5fbd00);
+  background-image: -moz-linear-gradient(top, #8fbd5e, #5fbd00);
+  background-image: -ms-linear-gradient(top, #8fbd5e, #5fbd00);
+  background-image: -o-linear-gradient(top, #8fbd5e, #5fbd00);
+  background-image: linear-gradient(to bottom, #8fbd5e, #5fbd00);
+}
+.buttons > .disaffirm, .buttons > form > .disaffirm {
+	width: 100px;
+	background: #00aaff;
+  background-image: -webkit-linear-gradient(top, #00aaff, #0073e6);
+  background-image: -moz-linear-gradient(top, #00aaff, #0073e6);
+  background-image: -ms-linear-gradient(top, #00aaff, #0073e6);
+  background-image: -o-linear-gradient(top, #00aaff, #0073e6);
+  background-image: linear-gradient(to bottom, #00aaff, #0073e6);
+}
+.buttons > .affirm:hover {
+	background: #7ebd5e;
+  background-image: -webkit-linear-gradient(top, #7ebd5e, #7ebd5e);
+  background-image: -moz-linear-gradient(top, #7ebd5e, #7ebd5e);
+  background-image: -ms-linear-gradient(top, #7ebd5e, #7ebd5e);
+  background-image: -o-linear-gradient(top, #7ebd5e, #7ebd5e);
+  background-image: linear-gradient(to bottom, #7ebd5e, #7ebd5e);
+}
+.buttons > .disaffirm:hover, .buttons > form > .disaffirm:hover {
+	background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+}
+a.footer-link {
+	display: inline-block;
+	margin: 4px;
+	padding: 2px;
+	width: 340px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #8fbd5e;
+	border: 4px solid #8fbd5e;
+}
+a.footer-link:hover:before {
+   content: "[ ";
+}
+a.footer-link:hover:after {
+   content: " ]";
+}
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 2px;
+    height: 40px;
+    width: 100%;
+    text-align: center;
+    color: #8fbd5e;
+    background-color: #333333;
+}
