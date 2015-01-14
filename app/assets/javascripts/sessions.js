@@ -17,8 +17,8 @@ $(document).ready(function (){
 		})
 	}
 	function clearForms() {
-		$('#login-form').slideUp();
-		$('#register-form').slideUp()
+		$('#login-form-section').hide();
+		$('#register-form').hide()
 	}
 	function stopPropagation(form) {
 		form.click(function(e) {
@@ -26,26 +26,31 @@ $(document).ready(function (){
 		})
 	}
 
-	slideForm($('#login-link'), $('#login-form'))
+	slideForm($('#login-link'), $('#login-form-section'))
 	slideForm($('#register-link'), $('#register-form'))
-	stopPropagation($('#login-form'))
+	stopPropagation($('#login-form-section'))
 	stopPropagation($('#register-form'))
 
 	$('html').click(function(e) { clearForms(); })
 
 	$('.disaffirm').click(function (e) {
 		e.preventDefault();
-		$('#login-form').slideUp();
+		$('#login-form-section').slideUp();
 		$('#register-form').slideUp();
 	})
 
 	// Ajax session control
- //  $('#submit-login').click(function(e) {
-	//   var request = $.ajax({
-	//     url: origin + "/" + input,
-	//     method: "get",
-	//     dataType: "json",
-	//     data: 'test'
-	//   })
-	// })
+	$('#do-login').click(function(e) {
+		e.preventDefault();
+	  var request = $.ajax({
+	    url: "/login",
+	    method: "post",
+	    dataType: "json",
+	    data: $('#login-form').serialize()
+	  })
+
+	  request.done(function(response) {
+	  	
+	  })
+	})
 })

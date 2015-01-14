@@ -3,4 +3,5 @@
 <div class="content">
 	<h2><%= yield(:title) %></h2>
 	<p>The time is now: <%= Time.now %></p>
+  <p>Current user: <%= current_user.name if logged_in? %></p>
 </div>

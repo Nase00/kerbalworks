@@ -1,38 +1,48 @@
 class SessionsController < ApplicationController
-	include SessionsHelper
+  def new
+  end
 
   # def create
   #   user = User.find_by(email: params[:session][:email].downcase)
   #   if user && user.authenticate(params[:session][:password])
-  #   	session[:user_id] = user.id
-  #     redirect_to root_url
+  #     session[:user_id] = user.id
+  #     redirect_to root_path
   #   else
   #     render 'new'
   #   end
   # end
 
+  # def create
+  #   @user = User.find_by(email: params[:session][:email].downcase)
+
+  #   respond_to do |format|
+  #     if @user.save
+  #       format.html { redirect_to @user, notice: 'User was successfully created.' }
+  #       format.json { render :show, status: :created, location: @user }
+  #     else
+  #       format.html { render :new }
+  #       format.json { render json: @user.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
+  #
+
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
+    @user = User.find_by(email: params[:session][:email])
+    session[:user_id] = @user.id
     respond_to do |format|
-        if user and user.authenticate(params[:session][:password])
-          session[:user_id] = user.id
-          format.html { redirect_to root_path }
-          format.json { head :no_content }
-          format.js
-        else
-          format.html { redirect_to login_url, alert: "Wrong login or password!" }
-          format.json { render json: "Wrong login or password", status: :unprocessable_entity }
-          format.js
-      end
+      format.js { render :json => @user }
     end
   end
 
   def destroy
-    log_out if logged_in?
-    redirect_to root_url
+    session[:user_id] = nil
+    redirect_to root_path
   end
 
- 	def log_out
-		session[:user_id] = nil
-	end
+  # private
+
+  # def params
+  #   params.require(:player).permit(:email)
+  # end
 end
