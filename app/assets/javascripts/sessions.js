@@ -1,4 +1,6 @@
 $(document).ready(function (){
+	var sessionTemplate = _.template($('#sessionTemplate').html());
+
 	// Style control
 	function slideForm(button, form) {
 		button.click(function(e) {
@@ -50,7 +52,14 @@ $(document).ready(function (){
 	  })
 
 	  request.done(function(response) {
-	  	
+	  	var sessionData = {
+	  		loggedInUserId: response.id,
+	  		loggedInUserName: response.name
+	  	}
+
+	  	$('h1').append(response.name)
+
+	  	$('#sessionAnchor').after(sessionTemplate(sessionData));
 	  })
 	})
 })

@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require underscore-min
 //= require_tree .
 
 $(document).ready(function() {

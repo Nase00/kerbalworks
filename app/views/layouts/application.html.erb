@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Kspace | <%= yield(:title) %></title>
+  <title>Title | <%= yield(:title) %></title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 	<header>
-		<h1><%= link_to 'KSpace', root_path, method: :get, id: "test-anchor" %></h1>
+		<h1><%= link_to 'Title', root_path, method: :get, id: "test-anchor" %></h1>
 		<section id="session">
 			<% if logged_in? %>
 				<span id="welcome">Logged in as: <%= link_to current_user.name, current_user, class: "session-link" %> | </span>
@@ -19,6 +19,10 @@
 			<% end %>
 		</section>
 	</header>
+	<script type="template" id='sessionTemplate'>
+	  <h1>test</h1>
+	  <a id="comment_{{= loggedInUserId }}">{{= loggedInUserName }}</a>
+	</script>
 
 	<%= render 'layouts/login_form' %>
 
