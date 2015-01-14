@@ -29,9 +29,6 @@ gem 'unicorn'
 
 gem 'rails_12factor', group: :production
 
-# Use underscore for templating
-gem 'underscore-rails'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

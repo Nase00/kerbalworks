@@ -10,7 +10,20 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require underscore
 //= require jquery
 //= require jquery_ujs
+//= require underscore
 //= require_tree .
+
+$(document).ready(function() {
+  _.templateSettings = {
+    interpolate : /\{\{=(.+?)\}\}/g,
+    escape : /\{\{-(.+?)\}\}/g,
+    evaluate: /\{\{(.+?)\}\}/g,
+  };
+
+  // $('#submit-post-link').click(function(e) { // Allows links to redirect to POST data
+  //   e.preventDefault();
+  //   document.postlink.submit();
+  // });
+});
