@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
           format.js
         else
           format.html { redirect_to login_url, alert: "Wrong login or password!" }
-          format.json {render json: "Wrong login or password", status: :unprocessable_entity}
+          format.json { render json: "Wrong login or password", status: :unprocessable_entity }
           format.js
       end
     end
