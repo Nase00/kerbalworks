@@ -17,7 +17,7 @@ $(document).ready(function (){
 		})
 	}
 	function clearForms() {
-		$('#login-form').hide();
+		$('#login-form-section').hide();
 		$('#register-form').hide()
 	}
 	function stopPropagation(form) {
@@ -26,21 +26,21 @@ $(document).ready(function (){
 		})
 	}
 
-	slideForm($('#login-link'), $('#login-form'))
+	slideForm($('#login-link'), $('#login-form-section'))
 	slideForm($('#register-link'), $('#register-form'))
-	stopPropagation($('#login-form'))
+	stopPropagation($('#login-form-section'))
 	stopPropagation($('#register-form'))
 
 	$('html').click(function(e) { clearForms(); })
 
 	$('.disaffirm').click(function (e) {
 		e.preventDefault();
-		$('#login-form').slideUp();
+		$('#login-form-section').slideUp();
 		$('#register-form').slideUp();
 	})
 
 	// Ajax session control
-	$('#login-form').submit(function(e) {
+	$('#do-login').click(function(e) {
 		e.preventDefault();
 	  var request = $.ajax({
 	    url: "/login",
@@ -50,8 +50,7 @@ $(document).ready(function (){
 	  })
 
 	  request.done(function(response) {
-	  	console.log(response)
-	  	console.log("test")
+	  	
 	  })
 	})
 })

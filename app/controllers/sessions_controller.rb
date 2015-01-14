@@ -25,9 +25,11 @@ class SessionsController < ApplicationController
   #     end
   #   end
   # end
-#
+  #
+
   def create
-    @user = User.find_by(email: params[:email])
+    @user = User.find_by(email: params[:session][:email])
+    session[:user_id] = @user.id
     respond_to do |format|
       format.js { render :json => @user }
     end
@@ -37,4 +39,10 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_path
   end
+
+  # private
+
+  # def params
+  #   params.require(:player).permit(:email)
+  # end
 end

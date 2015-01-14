@@ -1,17 +1,18 @@
-<section class="form hidden" id='login-form'>
-    <h2>Login</h2>
-    <%= form_tag('/login', method: :create, remote: true) %>
-      <div class="fields">
-        <%= label_tag :email %>
-        <%= text_field :email, placeholder: "Email adddress" %>
-        <%= label_tag :password %>
-        <%= password_field :password, placeholder: "Password" %>
-      </div>
-
-      <div class="buttons">
-        <%= submit_tag "Login", class: "affirm", id: "do-login" %>
-      </div>
-    <div class="buttons">
-      <%= button_to 'Cancel', root_path, method: :get, class: "disaffirm" %>
+<section class="form hidden" id='login-form-section'>
+  <h2>Login</h2>
+  <%= form_for 'session', html: { id: 'login-form' } do |f| %>
+    <div class="fields">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
     </div>
-  </section>
+
+    <div class="buttons">
+      <%= f.submit "Login", class: "affirm", id: "do-login" %>
+    </div>
+  <div class="buttons">
+    <%= button_to 'Cancel', root_path, method: :get, class: "disaffirm" %>
+  </div>
+  <% end %>
+</section>
