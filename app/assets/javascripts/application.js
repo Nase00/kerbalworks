@@ -15,15 +15,25 @@
 //= require underscore-min
 //= require_tree .
 
-$(document).ready(function() {
-  _.templateSettings = {
-    interpolate : /\{\{=(.+?)\}\}/g,
-    escape : /\{\{-(.+?)\}\}/g,
-    evaluate: /\{\{(.+?)\}\}/g,
-  };
+_.templateSettings = {
+  interpolate : /\{\{=(.+?)\}\}/g,
+  escape : /\{\{-(.+?)\}\}/g,
+  evaluate: /\{\{(.+?)\}\}/g,
+};
 
-  // $('#submit-post-link').click(function(e) { // Allows links to redirect to POST data
-  //   e.preventDefault();
-  //   document.postlink.submit();
-  // });
-});
+// $('#submit-post-link').click(function(e) { // Allows links to redirect to POST data
+//   e.preventDefault();
+//   document.postlink.submit();
+// });
+
+// $('#submit-post-link').click(function(e) {
+//   e.preventDefault();
+//   var url = this.href()
+//   var request = $.ajax({
+//       url: url,
+//       type: 'post',
+//       success: function(result) {
+//           console.log('test')
+//       }
+//   });
+// })

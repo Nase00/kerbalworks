@@ -8,8 +8,9 @@
 </head>
 <body>
 	<header>
-		<h1><%= link_to 'Title', root_path, method: :get, id: "test-anchor" %></h1>
+		<h1><%= link_to 'Title', root_path, method: :get %></h1>
 		<section id="session">
+			<a id='sessionAnchor'></a>
 			<% if logged_in? %>
 				<span id="welcome">Logged in as: <%= link_to current_user.name, current_user, class: "session-link" %> | </span>
 				<%= link_to 'LOGOUT', session_path(current_user), method: :delete, class: "session-link", id: "logout-link" %>
@@ -18,15 +19,18 @@
 				<%= link_to 'Register', new_user_path, class: "session-link", id: "register-link" %>
 			<% end %>
 		</section>
+		<section id='session-forms'>
+			<%= render 'layouts/login_form' %>
+			<%= render 'layouts/registration_form' %>
+		</section>
 	</header>
 	<script type="template" id='sessionTemplate'>
-	  <h1>test</h1>
-	  <a id="comment_{{= loggedInUserId }}">{{= loggedInUserName }}</a>
+		Logged in as: <a id="users/{{= loggedInUserId }}">{{= loggedInUserName }}</a> | <a href='/logout' id='do-logout'>Logout</a>
 	</script>
-
-	<%= render 'layouts/login_form' %>
-
-	<%= render 'layouts/registration_form' %>
+	<script type="template" id='sessionLoginTemplate'>
+		<%= link_to "Login", new_session_path, class: "session-link", id: "login-link" %> |
+		<%= link_to 'Register', new_user_path, class: "session-link", id: "register-link" %>
+	</script>
 
 	<%= yield %>
 	<footer>
