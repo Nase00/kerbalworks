@@ -3,9 +3,9 @@
   <%= form_for 'session', html: { id: 'login-form' } do |f| %>
     <div class="fields">
       <%= f.label :email %>
-      <%= f.text_field :email %>
+      <%= f.text_field :email, placeholder: 'Email address' %>
       <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= f.password_field :password, placeholder: 'Password' %>
     </div>
 
     <div class="buttons">

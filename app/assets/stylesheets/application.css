@@ -71,9 +71,11 @@ h1 > a:hover {
 
 /* Forms */
 section.form {
-	float: right;
+	position: absolute;
 	padding: 10px;
-	width: 320px;
+	top: 50px;
+	right: 50px;
+	width: 321px;
 	background-color: #3f3f3f;
 }
 section.form > h2 {
@@ -82,6 +84,12 @@ section.form > h2 {
 form {
 	display: inline;
 	color: #ffffff;
+}
+#login-form-section, #registration-form-section {
+	background-image:
+     -webkit-radial-gradient(20% top, rgb(50, 50, 50) 0%, rgb(30,30,30) 75%),
+     -webkit-radial-gradient(right top, rgb(190, 190, 190) 100%, rgba(100, 100, 100,0) 57%);
+	border: 1px solid #7f7f7f;
 }
 div.buttons > input, div.buttons, section.form, section.content, input {
 	margin: 0 auto auto;

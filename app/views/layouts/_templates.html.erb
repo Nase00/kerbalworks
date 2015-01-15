@@ -1,0 +1,7 @@
+	<script type="template" id='session-template'>
+		Logged in as: <a href="users/{{= loggedInUserId }}" class='session-link'>{{= loggedInUserName }}</a> | <a href='/logout' id='do-logout' class='session-link'>Logout</a>
+	</script>
+	<script type="template" id='session-login-template'>
+		<%= link_to "Login", new_session_path, class: "session-link", id: "login-link" %> |
+		<%= link_to 'Register', new_user_path, class: "session-link", id: "register-link" %>
+	</script>

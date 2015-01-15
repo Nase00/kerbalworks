@@ -1,72 +1,37 @@
 $(document).ready(function (){
-	var sessionTemplate = _.template($('#sessionTemplate').html());
-	var sessionLoginTemplate = _.template($('#sessionLoginTemplate').html());
+	var sessionTemplate = _.template($('#session-template').html());
+	var sessionLoginTemplate = _.template($('#session-login-template').html());
 
-	// Style control
-	function slideForm(button, form) {
-		button.click(function(e) {
-			e.preventDefault();
-			e.stopPropagation();
-	    var opened = $(this).data('opened');
-
-	    if (opened) {
-	      form.slideUp();
-	    } else {
-	    	clearForms();
-	      form.slideDown();
-	    }
-
-	    $(this).data('opened', !opened);
-		})
-	}
+	// Form appearance control
 	function clearForms() {
-		$('#login-form-section').hide();
-		$('#register-form').hide()
+		$('#login-form-section').fadeOut();
+		$('#registration-form-section').fadeOut()
 	}
 	function stopPropagation(form) {
 		form.click(function(e) {
 			e.stopPropagation();
 		})
 	}
-
-	$('#session').on('click', '#login-link', function(e) {
+	function eventListener(clickSelector, listenFor, formSection) {
+		clickSelector.on('click', listenFor, function(e) {
 			e.preventDefault();
-			// e.stopPropagation();
+			e.stopPropagation();
 	    var opened = $(this).data('opened');
-
 	    if (opened) {
-	      $('#login-form-section').slideUp();
+	      formSection.fadeOut();
 	    } else {
 	    	clearForms();
-	      $('#login-form-section').slideDown();
+	      formSection.fadeIn();
 	    }
-
 	    $(this).data('opened', !opened);
-		})
-
-	// slideForm($('#login-link'), $('#login-form-section'))
-	slideForm($('#register-link'), $('#register-form'))
+	  })
+	}
 	stopPropagation($('#login-form-section'))
-	stopPropagation($('#register-form'))
-
-	// $('html').click(function(e) { clearForms(); })
-
-	$('.disaffirm').click(function (e) {
-		e.preventDefault();
-		$('#login-form-section').slideUp();
-		$('#register-form').slideUp();
-	})
-
-	// function logOut(e) {
-	//   e.preventDefault();
-	//   var request = $.ajax({
-	//       url: '/logout',
-	//       type: 'post',
-	//       success: function(result) {
-	//         $('#session').html(sessionLoginTemplate);
-	//       }
-	//   });
-	// }
+	stopPropagation($('#registration-form-section'))
+	eventListener($('#session'), '#login-link', $('#login-form-section'))
+	eventListener($('#session'), '#register-link', $('#registration-form-section'))
+	$('.disaffirm').click(function (e) { e.preventDefault(); clearForms(); })
+	$('html').click(function(e) { clearForms(); })
 
 	// Ajax session control
 	$('#session-forms').on('submit', '#login-form', function(e) {
@@ -81,16 +46,15 @@ $(document).ready(function (){
 	  request.done(function(response) {
 	  	var sessionData = {
 	  		loggedInUserId: response.id,
-	  		loggedInUserName: response.name
+	  		loggedInUserName: response.name,
+	  		loggedInUserEmail: response.email
 	  	}
 
 	  	$('welcomeAnchor').append(response.name)
-			$('#login-form-section').slideUp();
+			$('#login-form-section').fadeOut();
 	  	$('#session').html(sessionTemplate(sessionData));
-  		// $('#do-logout').bind('click', logOut(e))
 	  });
 	});
-
 	$('#session').on('click', '#do-logout', function(e) {
 	  e.preventDefault();
 	  var request = $.ajax({
@@ -101,14 +65,4 @@ $(document).ready(function (){
 	      }
 	  });
 	});
-
-	// $('#do-logout').click(function(e) {
- //  e.preventDefault();
- //  var request = $.ajax({
- //      url: '/logout',
- //      type: 'post',
- //      success: function(result) {
- //        $('#session').html(sessionLoginTemplate);
- //      }
- //  });
 })
