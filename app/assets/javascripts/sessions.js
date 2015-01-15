@@ -1,5 +1,6 @@
 $(document).ready(function (){
 	var sessionTemplate = _.template($('#sessionTemplate').html());
+	var sessionLoginTemplate = _.template($('#sessionLoginTemplate').html());
 
 	// Style control
 	function slideForm(button, form) {
@@ -28,12 +29,27 @@ $(document).ready(function (){
 		})
 	}
 
-	slideForm($('#login-link'), $('#login-form-section'))
+	$('#session').on('click', '#login-link', function(e) {
+			e.preventDefault();
+			// e.stopPropagation();
+	    var opened = $(this).data('opened');
+
+	    if (opened) {
+	      $('#login-form-section').slideUp();
+	    } else {
+	    	clearForms();
+	      $('#login-form-section').slideDown();
+	    }
+
+	    $(this).data('opened', !opened);
+		})
+
+	// slideForm($('#login-link'), $('#login-form-section'))
 	slideForm($('#register-link'), $('#register-form'))
 	stopPropagation($('#login-form-section'))
 	stopPropagation($('#register-form'))
 
-	$('html').click(function(e) { clearForms(); })
+	// $('html').click(function(e) { clearForms(); })
 
 	$('.disaffirm').click(function (e) {
 		e.preventDefault();
@@ -41,8 +57,19 @@ $(document).ready(function (){
 		$('#register-form').slideUp();
 	})
 
+	// function logOut(e) {
+	//   e.preventDefault();
+	//   var request = $.ajax({
+	//       url: '/logout',
+	//       type: 'post',
+	//       success: function(result) {
+	//         $('#session').html(sessionLoginTemplate);
+	//       }
+	//   });
+	// }
+
 	// Ajax session control
-	$('#do-login').click(function(e) {
+	$('#session-forms').on('submit', '#login-form', function(e) {
 		e.preventDefault();
 	  var request = $.ajax({
 	    url: "/login",
@@ -57,9 +84,31 @@ $(document).ready(function (){
 	  		loggedInUserName: response.name
 	  	}
 
-	  	$('h1').append(response.name)
+	  	$('welcomeAnchor').append(response.name)
+			$('#login-form-section').slideUp();
+	  	$('#session').html(sessionTemplate(sessionData));
+  		// $('#do-logout').bind('click', logOut(e))
+	  });
+	});
 
-	  	$('#sessionAnchor').after(sessionTemplate(sessionData));
-	  })
-	})
+	$('#session').on('click', '#do-logout', function(e) {
+	  e.preventDefault();
+	  var request = $.ajax({
+	      url: '/logout',
+	      type: 'post',
+	      success: function(result) {
+	        $('#session').html(sessionLoginTemplate);
+	      }
+	  });
+	});
+
+	// $('#do-logout').click(function(e) {
+ //  e.preventDefault();
+ //  var request = $.ajax({
+ //      url: '/logout',
+ //      type: 'post',
+ //      success: function(result) {
+ //        $('#session').html(sessionLoginTemplate);
+ //      }
+ //  });
 })
