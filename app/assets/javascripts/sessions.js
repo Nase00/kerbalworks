@@ -1,7 +1,3 @@
-$(document).ready(function (){
-	var sessionTemplate = _.template($('#session-template').html());
-	var sessionLoginTemplate = _.template($('#session-login-template').html());
-
 	// Form appearance control
 	function clearForms() {
 		$('#login-form-section').fadeOut();
@@ -26,6 +22,11 @@ $(document).ready(function (){
 	    $(this).data('opened', !opened);
 	  })
 	}
+
+$(document).ready(function (){
+	var sessionTemplate = _.template($('#session-template').html());
+	var sessionLoginTemplate = _.template($('#session-login-template').html());
+
 	stopPropagation($('#login-form-section'))
 	stopPropagation($('#registration-form-section'))
 	eventListener($('#session'), '#login-link', $('#login-form-section'))
