@@ -29,7 +29,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Unicorn as the app server
 gem 'unicorn'
 
-gem 'rails_12factor', group: :production
+gem 'rails_12factor', group: [:production]
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -50,3 +50,7 @@ gem 'shoulda-matchers', group: [:test]
 gem 'rspec-rails', group: [:development, :test]
 
 gem 'simplecov', group: [:test], require: false
+
+gem 'rake', group: [:test]
+
+gem 'newrelic_rpm', group: [:production]
