@@ -1,3 +1,5 @@
+// = require 'sessions'
+
 * {
 	font-family: Helvetica;
 }
@@ -25,18 +27,6 @@ a:hover {
 }
 .hidden {
 	display: none;
-}
-
-/* Session */
-section#session {
-	position: absolute;
-	padding: 4px;
-	top: 0;
-	right: 0;
-}
-section#session, a.session-link {
-	text-transform: uppercase;
-	color: #ffffff;
 }
 
 /* Content */

@@ -1,0 +1,10 @@
+section#session {
+	position: absolute;
+	padding: 4px;
+	top: 0;
+	right: 0;
+}
+section#session, a.session-link {
+	text-transform: uppercase;
+	color: #ffffff;
+}
