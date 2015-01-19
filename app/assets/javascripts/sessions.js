@@ -51,7 +51,7 @@ $(document).ready(function (){
 	  		loggedInUserEmail: response.email
 	  	}
 
-	  	$('welcomeAnchor').append(response.name)
+	  	$('welcomeAnchor').append(response.username)
 			$('#login-form-section').fadeOut();
 	  	$('#session').html(sessionTemplate(sessionData));
 	  });

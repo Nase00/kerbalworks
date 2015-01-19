@@ -62,9 +62,9 @@ h1 > a:hover {
 section.form {
 	position: absolute;
 	padding: 10px;
-	top: 50px;
+	top: 40px;
 	right: 50px;
-	width: 321px;
+	width: 300px;
 	background-color: #3f3f3f;
 }
 section.form > h2 {
@@ -86,9 +86,9 @@ div.buttons > input, div.buttons, section.form, section.content, input {
 }
 div.fields > input {
 	float: right;
-  margin: 2px;
+  margin: 4px;
   padding: 4px;
-  width: 200px;
+  width: 196px;
   border-radius: 2px;
 }
 div.fields > label, div.buttons > label {
