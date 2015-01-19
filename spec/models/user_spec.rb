@@ -1,23 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe User, :type => :model do
-  let(:user) { User.new(name: "Jebidiah", email: 'test@aol.com', youtube: 'space', twitter: 'Whee', password: 'test')}
+  let(:user) { User.new(username: "Jebidiah", email: 'test@aol.com', youtube: 'space', twitter: 'Whee')}
 
   describe "validates presence" do
-    it { expect(user).to validate_presence_of(:name) }
+    it { expect(user).to validate_presence_of(:username) }
     it { expect(user).to validate_presence_of(:email) }
+    it { expect(user).to validate_presence_of(:password) }
   end
 
   describe "validates uniqueness" do
-    it { expect(user).to validate_uniqueness_of(:username) }
+    it { expect(user).to validate_uniqueness_of(:email) }
   end
 
   describe "excepts associations" do
-    it { expect(user).to have_many(:answers) }
-    it { expect(user).to have_many(:questions) }
-    it { expect(user).to have_many(:votes) }
-    it { expect(user).to have_many(:responses) }
-    it { expect(user).to have_many(:tags) }
+    it { expect(user).to have_many(:ships) }
   end
 
   describe "restricts email format" do
