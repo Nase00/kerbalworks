@@ -53,4 +53,4 @@ gem 'simplecov', group: [:test], require: false
 
 gem 'rake', group: [:test]
 
-gem 'newrelic_rpm', group: [:production]
+# gem 'newrelic_rpm', group: [:production]
