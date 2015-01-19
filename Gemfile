@@ -48,3 +48,5 @@ gem 'spring', group: [:development, :test]
 gem 'shoulda-matchers', group: [:test]
 
 gem 'rspec-rails', group: [:development, :test]
+
+gem 'simplecov', group: [:test], require: false

@@ -12,7 +12,7 @@
 		<h1><%= link_to 'Title', root_path, method: :get %></h1>
 		<section id="session">
 			<% if logged_in? %>
-				<span id="welcome">Logged in as: <%= link_to current_user.name, current_user, class: "session-link" %> | </span>
+				<span id="welcome">Logged in as: <%= link_to current_user.username, current_user, class: "session-link" %> | </span>
 				<%= link_to 'LOGOUT', session_path(current_user), method: :delete, class: "session-link", id: "logout-link" %>
 			<% else %>
 				<%= link_to "Login", new_session_path, class: "session-link", id: "login-link" %> |

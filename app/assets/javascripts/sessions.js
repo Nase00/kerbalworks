@@ -47,7 +47,7 @@ $(document).ready(function (){
 	  request.done(function(response) {
 	  	var sessionData = {
 	  		loggedInUserId: response.id,
-	  		loggedInUserName: response.name,
+	  		loggedInUserName: response.username,
 	  		loggedInUserEmail: response.email
 	  	}
 
