@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   has_many :ships, foreign_key: "pilot_id"
+
+  validates_presence_of :name, :email
+
   has_secure_password
 
 	before_save { self.email = email.downcase }
