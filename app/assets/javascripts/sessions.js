@@ -1,38 +1,41 @@
 	// Form appearance control
-	function clearForms() {
-		$('#login-form-section').fadeOut();
-		$('#registration-form-section').fadeOut()
+	var Session = function() {
+		this.clearForms = function() {
+			$('#login-form-section').fadeOut();
+			$('#registration-form-section').fadeOut()
+		}
+		this.stopPropagation = function(form) {
+			form.click(function(e) {
+				e.stopPropagation();
+			})
+		}
+		this.eventListener = function(clickSelector, listenFor, formSection) {
+			clickSelector.on('click', listenFor, function(e) {
+				e.preventDefault();
+				e.stopPropagation();
+		    var opened = $(this).data('opened');
+		    if (opened) {
+		      formSection.fadeOut();
+		    } else {
+		    	session.clearForms();
+		      formSection.fadeIn();
+		    }
+		    $(this).data('opened', !opened);
+		  })
+		}
 	}
-	function stopPropagation(form) {
-		form.click(function(e) {
-			e.stopPropagation();
-		})
-	}
-	function eventListener(clickSelector, listenFor, formSection) {
-		clickSelector.on('click', listenFor, function(e) {
-			e.preventDefault();
-			e.stopPropagation();
-	    var opened = $(this).data('opened');
-	    if (opened) {
-	      formSection.fadeOut();
-	    } else {
-	    	clearForms();
-	      formSection.fadeIn();
-	    }
-	    $(this).data('opened', !opened);
-	  })
-	}
+	var session = new Session;
 
 $(document).ready(function (){
 	var sessionTemplate = _.template($('#session-template').html());
 	var sessionLoginTemplate = _.template($('#session-login-template').html());
 
-	stopPropagation($('#login-form-section'))
-	stopPropagation($('#registration-form-section'))
-	eventListener($('#session'), '#login-link', $('#login-form-section'))
-	eventListener($('#session'), '#register-link', $('#registration-form-section'))
-	$('.disaffirm').click(function (e) { e.preventDefault(); clearForms(); })
-	$('html').click(function(e) { clearForms(); })
+	session.stopPropagation($('#login-form-section'))
+	session.stopPropagation($('#registration-form-section'))
+	session.eventListener($('#session'), '#login-link', $('#login-form-section'))
+	session.eventListener($('#session'), '#register-link', $('#registration-form-section'))
+	$('.disaffirm').click(function (e) { e.preventDefault(); session.clearForms(); })
+	$('html').click(function(e) { session.clearForms(); })
 
 	// Ajax session control
 	$('#session-forms').on('submit', '#login-form', function(e) {
