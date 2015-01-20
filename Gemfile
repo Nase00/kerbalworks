@@ -41,9 +41,10 @@ gem 'better_errors', group: [:development, :test]
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring', group: [:development, :test]
 
-gem 'shoulda-matchers', group: [:test]
-
+# Testing gems
 gem 'rspec-rails', group: [:development, :test]
+gem 'shoulda-matchers', group: [:test]
+gem 'jasmine', group: [:test]
 
 gem 'simplecov', group: [:test], require: false
 
