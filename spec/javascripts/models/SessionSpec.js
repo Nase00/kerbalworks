@@ -1,4 +1,4 @@
-describe("Player", function() {
+describe("Session", function() {
   var session;
 
   beforeEach(function() {

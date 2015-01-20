@@ -1,4 +1,4 @@
-	// Form appearance control
+// Form appearance control
 	var Session = function() {
 		this.clearForms = function() {
 			$('#login-form-section').fadeOut();
