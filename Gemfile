@@ -44,7 +44,7 @@ gem 'spring', group: [:development, :test]
 # Testing gems
 gem 'rspec-rails', group: [:development, :test]
 gem 'shoulda-matchers', group: [:test]
-gem 'jasmine', group: [:test]
+gem 'jasmine', group: [:test, :development]
 
 gem 'simplecov', group: [:test], require: false
 
