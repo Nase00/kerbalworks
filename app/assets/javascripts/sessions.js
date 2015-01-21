@@ -10,6 +10,7 @@ var forms = {
   loginForm: '#login-form-section',
   registrationFormSection: '#registration-form-section'
 }
+
 var Session = function() {
   this.stopPropagation = function(form) {
     form.click(function(e) {
@@ -22,7 +23,6 @@ var Session = function() {
       e.stopPropagation();
       var opened = $(this).data('opened');
       if (opened) {
-        // $(formSection).fadeOut();
         clearForms();
       } else {
         clearForms();
@@ -47,8 +47,8 @@ $(document).ready(function (){
   session.stopPropagation($('#registration-form-section'))
   session.eventListener($('#session'), '#login-link', '#login-form-section')
   session.eventListener($('#session'), '#register-link', '#registration-form-section')
-  $('.disaffirm').click(function (e) { e.preventDefault(); clearForms(forms); })
-  $('html').click(function(e) { clearForms(forms); })
+  $('.disaffirm').click(function (e) { e.preventDefault(); clearForms(); })
+  $('html').click(function(e) { clearForms(); })
 
   // Ajax session control
   $('#session-forms').on('submit', '#login-form', function(e) {
