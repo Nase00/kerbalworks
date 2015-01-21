@@ -32,10 +32,10 @@ var Session = function() {
     })
   }
   this.headerTemplate = function (selector) {
-    _.template(selector.html());
+    return _.template($(selector).html());
   }
   this.loginTemplate = function (selector) {
-    _.template(selector.html());
+    return _.template($(selector).html());
   }
 }
 
@@ -69,7 +69,7 @@ $(document).ready(function (){
 
       $('welcomeAnchor').append(response.username)
       $('#login-form-section').fadeOut();
-      $('#session').html(session.headerTemplate($('#session-template'))(sessionData));
+      $('#session').html(session.headerTemplate('#session-template')(sessionData));
     });
   });
   $('#session').on('click', '#do-logout', function(e) {
@@ -78,7 +78,7 @@ $(document).ready(function (){
         url: '/logout',
         type: 'post',
         success: function(result) {
-          $('#session').html(session.loginTemplate($('#session-login-template')));
+          $('#session').html(session.loginTemplate('#session-login-template'));
         }
     });
   });
