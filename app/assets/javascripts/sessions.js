@@ -1,43 +1,54 @@
-$(document).ready(function (){
-  // Form appearance control
-  var Session = function() {
-    this.clearForms = function() {
-      $('#login-form-section').fadeOut();
-      $('#registration-form-section').fadeOut()
-    }
-    this.stopPropagation = function(form) {
-      form.click(function(e) {
-        e.stopPropagation();
-      })
-    }
-    this.eventListener = function(clickSelector, listenFor, formSection) {
-      clickSelector.on('click', listenFor, function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        var opened = $(this).data('opened');
-        if (opened) {
-          formSection.fadeOut();
-        } else {
-          session.clearForms();
-          formSection.fadeIn();
-        }
-        $(this).data('opened', !opened);
-      })
-    }
-    this.headerTemplate = function (selector) {
-      _.template(selector.html());
-    }
-    this.loginTemplate = function (selector) {
-      _.template(selector.html());
-    }
+clearForms = function() {
+  for(var form in forms) {
+    var form = forms[form]
+    $(form).fadeOut();
   }
+}
+
+// Form appearance control
+var forms = {
+  loginForm: '#login-form-section',
+  registrationFormSection: '#registration-form-section'
+}
+var Session = function() {
+  this.stopPropagation = function(form) {
+    form.click(function(e) {
+      e.stopPropagation();
+    })
+  }
+  this.eventListener = function(clickSelector, listenFor, formSection) {
+    clickSelector.on('click', listenFor, function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var opened = $(this).data('opened');
+      if (opened) {
+        // $(formSection).fadeOut();
+        clearForms();
+      } else {
+        clearForms();
+        $(formSection).fadeIn();
+      }
+      $(this).data('opened', !opened);
+    })
+  }
+  this.headerTemplate = function (selector) {
+    _.template(selector.html());
+  }
+  this.loginTemplate = function (selector) {
+    _.template(selector.html());
+  }
+}
+
+$(document).ready(function (){
+
   var session = new Session;
+
   session.stopPropagation($('#login-form-section'))
   session.stopPropagation($('#registration-form-section'))
-  session.eventListener($('#session'), '#login-link', $('#login-form-section'))
-  session.eventListener($('#session'), '#register-link', $('#registration-form-section'))
-  $('.disaffirm').click(function (e) { e.preventDefault(); session.clearForms(); })
-  $('html').click(function(e) { session.clearForms(); })
+  session.eventListener($('#session'), '#login-link', '#login-form-section')
+  session.eventListener($('#session'), '#register-link', '#registration-form-section')
+  $('.disaffirm').click(function (e) { e.preventDefault(); clearForms(forms); })
+  $('html').click(function(e) { clearForms(forms); })
 
   // Ajax session control
   $('#session-forms').on('submit', '#login-form', function(e) {
