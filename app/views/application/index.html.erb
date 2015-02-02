@@ -4,6 +4,7 @@
 	<h2><%= yield(:title) %></h2>
 	<p>The time is now: <%= Time.now %></p>
   <p><%= 'Welcome ' + current_user.username if logged_in? %><a id='welcomeAnchor'></a></p>
+  <div id='react-timer'></div>
   <% User.all.each do |user| %>
   <!-- <%= user.username %> -->
   <% end %>
