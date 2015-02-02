@@ -11,8 +11,12 @@
 	<header>
 		<h1><%= link_to 'Title', root_path, method: :get %></h1>
 		<section id="session">
-			<%= link_to "Login", new_session_path, class: "session-link", id: "login-link" %> |
+			<a id='login-link'></a> |
 			<%= link_to 'Register', new_user_path, class: "session-link", id: "register-link" %>
+		</section>
+		<section id='session-forms'>
+			<%= render 'layouts/login_form' %>
+			<%= render 'layouts/registration_form' %>
 		</section>
 		<a id='login-anchor'></a>
 	</header>

@@ -10,13 +10,14 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require domready
+//= require jquery.min
+//= require underscore.min
 //= require react
 //= require react_ujs
 //= require components
 //= require_tree .
 
-domready(function () {
+$(document).ready(function () {
 	var Timer = React.createClass({
 	  getInitialState: function() {
 	    return {secondsElapsed: 0};
