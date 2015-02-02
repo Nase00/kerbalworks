@@ -11,22 +11,12 @@
 	<header>
 		<h1><%= link_to 'Title', root_path, method: :get %></h1>
 		<section id="session">
-			<% if logged_in? %>
-				<span id="welcome">Logged in as: <%= link_to current_user.username, current_user, class: "session-link" %> | </span>
-				<%= link_to 'LOGOUT', session_path(current_user), method: :delete, class: "session-link", id: "logout-link" %>
-			<% else %>
-				<%= link_to "Login", new_session_path, class: "session-link", id: "login-link" %> |
-				<%= link_to 'Register', new_user_path, class: "session-link", id: "register-link" %>
-			<% end %>
+			<%= link_to "Login", new_session_path, class: "session-link", id: "login-link" %> |
+			<%= link_to 'Register', new_user_path, class: "session-link", id: "register-link" %>
 		</section>
-		<section id='session-forms'>
-			<%= render 'layouts/login_form' %>
-			<%= render 'layouts/registration_form' %>
-		</section>
-		<a id='sessionAnchor'></a>
+		<a id='login-anchor'></a>
 	</header>
 	<%= yield %>
-	<a id='sessionAnchor'></a>
 	<footer>
 		<%= link_to "https://github.com/Nase00/kspace", 'https://github.com/Nase00/kspace', class: "footer-link" %>
 	</footer>
