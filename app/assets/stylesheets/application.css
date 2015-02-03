@@ -13,11 +13,8 @@ body {
 	background-color: #F0F0F0;
 }
 header {
+	vertical-align: middle;
 	background-color: #262626;
-}
-section {
-	margin: 10px;
-	/*box-shadow: 1px 1px 2px #bfbfbf;*/
 }
 a {
 	text-decoration: none;
@@ -59,38 +56,26 @@ h1 > a:hover {
 }
 
 /* Forms */
-section.form {
-	position: absolute;
-	padding: 10px;
-	top: 40px;
-	right: 50px;
-	width: 300px;
-	background-color: #3f3f3f;
-}
-section.form > h2 {
-	text-align: center;
-}
-form {
-	display: inline;
-	color: #ffffff;
-}
-#login-box, #registration-form-section {
+section.session-form > form {
 	float: right;
-	max-width: 300px;
-	background-image:
-     -webkit-radial-gradient(20% top, rgb(50, 50, 50) 0%, rgb(30,30,30) 75%),
-     -webkit-radial-gradient(right top, rgb(190, 190, 190) 100%, rgba(100, 100, 100,0) 57%);
-	border: 1px solid #7f7f7f;
+	margin: 1%;
+	padding: 5px;
+	width: 300px;
+	color: #ffffff;
+	background-color: #262626;
+	border: 2px solid #7f7f7f;
 }
 div.buttons > input, div.buttons, section.form, section.content, input {
 	margin: 0 auto auto;
 	border: 0;
 }
+div.fields {
+	width: 100%;
+}
 div.fields > input {
-	display: inline;
   margin: 4px;
   padding: 4px;
-  width: 196px;
+  width: 284px;
   border-radius: 2px;
 }
 div.fields > label, div.buttons > label {
@@ -109,7 +94,6 @@ div.buttons {
 	border-radius: 4px;
 }
 .buttons > .affirm {
-	width: 186px;
 	background: #8fbd5e;
   background-image: -webkit-linear-gradient(top, #8fbd5e, #5fbd00);
   background-image: -moz-linear-gradient(top, #8fbd5e, #5fbd00);
@@ -118,7 +102,6 @@ div.buttons {
   background-image: linear-gradient(to bottom, #8fbd5e, #5fbd00);
 }
 .buttons > .disaffirm, .buttons > form > .disaffirm {
-	width: 100px;
 	background: #00aaff;
   background-image: -webkit-linear-gradient(top, #00aaff, #0073e6);
   background-image: -moz-linear-gradient(top, #00aaff, #0073e6);
