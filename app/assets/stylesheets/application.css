@@ -48,7 +48,6 @@ h1 > a:hover, h2 > a:hover, h3 > a:hover, h4 > a:hover, h5 > a:hover {
 	color: #77BED2;
 }
 h1, h1 > a {
-	/*padding: 10px;*/
 	color: #f90304;
 }
 h1 > a:hover {
@@ -152,4 +151,7 @@ footer {
     text-align: center;
     color: #8fbd5e;
     background-color: #333333;
+}
+input {
+	margin: 2px;
 }
