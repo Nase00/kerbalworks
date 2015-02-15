@@ -55,15 +55,6 @@ h1 > a:hover {
 }
 
 /* Forms */
-section.session-form > form {
-	float: right;
-	margin: 1%;
-	padding: 5px;
-	width: 300px;
-	color: #ffffff;
-	background-color: #262626;
-	border: 2px solid #7f7f7f;
-}
 div.buttons > input, div.buttons, section.form, section.content, input {
 	margin: 0 auto auto;
 	border: 0;
@@ -86,6 +77,7 @@ div.buttons {
 	padding: 2px;
 }
 .buttons > .affirm, .disaffirm {
+	margin: 0 6px 0 2px;
 	height: 30px;
 	color: #ffffff;
 	font-size: 18px;
@@ -94,6 +86,7 @@ div.buttons {
 }
 .buttons > .affirm {
 	background: #8fbd5e;
+	width: 200px;
   background-image: -webkit-linear-gradient(top, #8fbd5e, #5fbd00);
   background-image: -moz-linear-gradient(top, #8fbd5e, #5fbd00);
   background-image: -ms-linear-gradient(top, #8fbd5e, #5fbd00);

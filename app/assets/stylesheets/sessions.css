@@ -1,3 +1,13 @@
+section.session-form > form {
+	float: right;
+	margin: 1%;
+	padding: 5px;
+	text-align: center;
+	width: 300px;
+	color: #ffffff;
+	background-color: #262626;
+	border: 2px solid #7f7f7f;
+}
 section#session {
 	position: absolute;
 	padding: 4px;

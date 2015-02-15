@@ -12,6 +12,15 @@ $(document).ready(function () {
 		}
 	}
 
+	var CancelButton = React.createClass({
+		onClick: function() {
+			toggle();
+		},
+		render: function() {
+			return (<input id='close-form' className='disaffirm' type='button' value='Cancel' />)
+		}
+	})
+
 	var LoginLink = React.createClass({
   	getInitialState: function() {
       return { shownForm: false };
@@ -49,7 +58,7 @@ $(document).ready(function () {
 						</div>
 					  <div className='buttons'>
 					  	<input className='affirm' type='submit' />
-					  	<input id='close-form' className='disaffirm' type='button' value='Cancel' />
+					  	<CancelButton />
 					  </div>
 					</form>
 				</section>
