@@ -1,21 +1,26 @@
+
 $(document).ready(function () {
 	var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+	var shownForm = false
+	function toggle() {
+		if (shownForm) {
+			React.render(<span />, document.getElementById('login-anchor'));
+			shownForm = false
+		} else {
+			React.render(<LoginForm />, document.getElementById('login-anchor'));
+			shownForm = true
+		}
+	}
 
 	var LoginLink = React.createClass({
   	getInitialState: function() {
       return { shownForm: false };
     },
 		onClick: function() {
-			console.log('Testing onclick')
-			if (this.state.shownForm) {
-				React.render(<span />, document.getElementById('login-anchor'));
-				this.setState({ shownForm: false })
-			} else {
-				React.render(<LoginForm />, document.getElementById('login-anchor'));
-			}
+			toggle();
 		},
 		render: function() {
-			return (<a href='#' onClick={this.onClick}>Login</a>)
+			return (<a href='#' className='session-link' onClick={this.onClick}>Login</a>)
 		}
 	})
 
@@ -27,7 +32,7 @@ $(document).ready(function () {
 		    url: "/login",
 		    method: "post",
 		    dataType: "json",
-		    data: $('.loginForm').serialize()
+		    data: $('#login-form').serialize()
 		  })
 		  request.done(function(response) {
 		  	console.log(response)
@@ -35,16 +40,16 @@ $(document).ready(function () {
 			return;  	
 	  },
 	  render: function() {
-	  	LoginLink.setState({ shownForm: true })
 	    return (
 	    	<section className='session-form'>
-					<form onSubmit={this.handleSubmit}>
+					<form id="login-form" onSubmit={this.handleSubmit}>
 						<div className='fields'>
 							<input type='text' name='session[email]' placeholder='Email' />
 							<input type='password' name='session[password]' placeholder='Password' />
 						</div>
 					  <div className='buttons'>
 					  	<input className='affirm' type='submit' />
+					  	<input id='close-form' className='disaffirm' type='button' value='Cancel' />
 					  </div>
 					</form>
 				</section>
@@ -53,6 +58,11 @@ $(document).ready(function () {
 	});
 
 	React.render(<LoginLink />, document.getElementById('login-link'))
+	
+	$('html').on('click', '#close-form', function() {
+		shownForm = false
+		React.render(<span />, document.getElementById('login-anchor'));
+	})
 
 	// document.getElementById('login-link').onclick=function showLogin(e) {
 	// 	e.preventDefault()
